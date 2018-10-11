@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body id="colorful">
+    <script>
+
+
+        window.addEventListener('deviceorientation', handleOrientation);
+
+        function handleOrientation(event) {
+            var absolute = event.absolute;
+            var alpha = parseFloat(255 * (event.alpha + 180) / 360).toFixed(0);/* 0 to 360.*/
+            var beta = parseFloat(255 * (event.beta + 180) / 360).toFixed(0);/*-180 to 180.*/
+            var gamma = parseFloat(255 * (event.gamma + 90) / 180).toFixed(0);/*-90 to 90. */
+
+            document.getElementById('colorful').style.backgroundColor = 'rgb(' + alpha + ', ' + beta + ', ' + gamma + ')';
+        }
+
+    </script>
+</body>
+
+</html>
